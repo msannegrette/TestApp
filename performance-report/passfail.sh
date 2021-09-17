@@ -17,7 +17,9 @@ else echo "reporting:
     No se llego a la cantidad especificada de requests ("$HITS"): hits of $REQ<"$HITS", continue as failed    
     Se supero el procentaje maximo de errores ("$PERERR"%): fail>"$PERERR"%, continue as failed">passfail.yaml; fi
 
-#echo "services:
-#- module: shellexec
-#  post-process:
-#  - jmeter.sh -Jjmeter.save.saveservice.assertion_results_failure_message=false -Jjmeter.reportgenerator.overall_granularity=15000 -Jjmeter.reportgenerator.report_title=${JOB_NAME} -g "'${TAURUS_ARTIFACTS_DIR}'"/kpi.jtl -o "'${TAURUS_ARTIFACTS_DIR}'"/dashboard" >>passfail.yaml
+echo "services:
+- module: shellexec
+  post-process:
+  - /home/jenkins/.bzt/jmeter-taurus/5.2.1/bin/jmeter.sh -Jjmeter.save.saveservice.assertion_results_failure_message=false -Jjmeter.reportgenerator.overall_granularity=15000 -Jjmeter.reportgenerator.report_title=${JOB_NAME} -g "'${TAURUS_ARTIFACTS_DIR}'"/kpi.jtl -o dashboard 
+  - mv "'${TAURUS_ARTIFACTS_DIR}'"/kpi.jtl .
+  - ls -a" >>passfail.yaml
