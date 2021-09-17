@@ -1,6 +1,6 @@
 Nombre Req: GetAlias
 Testing URL: libreta-servicios-v2-gpag-gpag-int.stgcloud.bancogalicia.com.ar
-Percentil 95: 50
+Percentil 95: 300
 Porcentaje error: 0 
 Numero hilos: 20
 TPS Target: 10
